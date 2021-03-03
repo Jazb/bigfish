@@ -62,6 +62,12 @@ function fish_prompt --description 'bigfish: A long two-lines fish prompt'
         set leftPrompt (bf_concat_segments $leftPrompt ' ╱ ' grey normal)
         set leftPrompt (bf_concat_segments $leftPrompt $glyph_vagrant_logo purple normal)
     end
+    
+    # kubernetes
+    if /bin/test -z "$__kube_ps_enabled"; or /bin/test $__kube_ps_enabled -ne 1
+        set leftPrompt (bf_concat_segments $leftPrompt '/' grey normal)
+        set leftPrompt (bf_concat_segments $leftPrompt (__kube_prompt) blue normal)
+    end
 
     # Assemble the right prompt
 
