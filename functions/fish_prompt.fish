@@ -64,7 +64,7 @@ function fish_prompt --description 'bigfish: A long two-lines fish prompt'
     end
     
     # kubernetes
-    if lookup ~/.config/kube > /dev/null
+    if lookup ~/.kube/config > /dev/null
         set leftPrompt (bf_concat_segments $leftPrompt ' ╱ ' grey normal)
         set leftPrompt (bf_concat_segments $leftPrompt (__kube_prompt) blue normal)
     end
